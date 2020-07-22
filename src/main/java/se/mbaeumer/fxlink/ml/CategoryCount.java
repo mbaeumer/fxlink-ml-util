@@ -2,18 +2,22 @@ package se.mbaeumer.fxlink.ml;
 
 public class CategoryCount {
     private String category;
-    private String count;
+    private int count;
 
     public String getCategory() {
         return category;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
     }
 
-    public CategoryCount(String category, String count) {
+    public CategoryCount(String category, int count) {
         this.category = category;
         this.count = count;
+    }
+
+    public void increaseCount(){
+        count++;
     }
 }
