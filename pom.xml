@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.mbaeumer.mllab</groupId>
-    <artifactId>fxlinnk-ml-util</artifactId>
+    <artifactId>fxlink-ml-util</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
@@ -60,7 +60,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>se.mbaeumer.chesschallenges.Main</mainClass>
+                            <mainClass>se.mbaeumer.fxlink.ml.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -70,6 +70,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
