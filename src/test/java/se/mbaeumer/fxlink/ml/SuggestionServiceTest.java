@@ -6,17 +6,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class SuggestionServiceTest {
 
     @Test
-    public void doSomething() {
+    public void shouldCreateSuggestions() {
         SuggestionService suggestionService = new SuggestionService();
         DataService dataService = new DataService();
 
         Link link = new Link("", "https://www.baeldung.com/jackson-kotlin", "");
-        List<Suggestion> suggestions = suggestionService.doSomething(dataService.prepareData(createLinkList()), link);
+        List<Suggestion> suggestions = suggestionService.createSuggestions(dataService.prepareData(createLinkList()), link);
         Assert.assertTrue(suggestions.stream().filter(suggestion -> "Kotlin".equals(suggestion.getCategory())).findFirst().isPresent());
 
     }

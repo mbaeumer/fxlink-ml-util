@@ -4,15 +4,12 @@ import java.util.*;
 
 public class SuggestionService {
 
-    private Map<String, List<CategoryCount>> data;
-
-    public List<Suggestion> doSomething(final Map<String, List<CategoryCount>> map, final Link link){
+    public List<Suggestion> createSuggestions(final Map<String, List<CategoryCount>> map, final Link link){
         List<Suggestion> suggestions = new ArrayList<>();
-        data = map;
         UrlSevice urlSevice = new UrlSevice();
         String url = urlSevice.withoutProtocol(link.getURL());
         url = urlSevice.withoutPrefix(url);
-        List<String> urlParts = Arrays.asList(urlSevice.getUrlParts(url));
+        String[] urlParts = urlSevice.getUrlParts(url);
 
         for (String word : urlParts){
             List<CategoryCount> categoryCounts = map.get(word);
@@ -31,17 +28,7 @@ public class SuggestionService {
                     }
             });
         }
-        // go through each word
-        //   word exists in map?
-        //   if yes:
-        //
-
-        //   if no:
 
         return suggestions;
-    }
-
-    public void doOp(String word){
-
     }
 }
