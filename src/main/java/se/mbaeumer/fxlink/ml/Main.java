@@ -32,15 +32,7 @@ public class Main {
                 .collect(Collectors.toList());
 
         DataService dataService = new DataService();
-        Map<String, CategoryCount> hashMap = dataService.prepareData(categorizedLinks);
-        hashMap.keySet().stream().
-
-
-
-
-
-
-
+        Map<String, List<CategoryCount>> hashMap = dataService.prepareData(categorizedLinks);
 
     }
 }
