@@ -3,39 +3,37 @@ package se.mbaeumer.fxlink.ml;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class UrlSeviceTest {
+public class UrlServiceTest {
 
     @Test
     public void withoutHttpProtocol() {
-        UrlSevice urlSevice = new UrlSevice();
+        UrlService urlService = new UrlService();
 
-        String actual = urlSevice.withoutProtocol("http://www.kicker.de");
+        String actual = urlService.withoutProtocol("http://www.kicker.de");
         Assert.assertTrue("www.kicker.de".equals(actual));
     }
 
     @Test
     public void withoutHttpsProtocol() {
-        UrlSevice urlSevice = new UrlSevice();
+        UrlService urlService = new UrlService();
 
-        String actual = urlSevice.withoutProtocol("https://www.kicker.de");
+        String actual = urlService.withoutProtocol("https://www.kicker.de");
         Assert.assertTrue("www.kicker.de".equals(actual));
     }
 
     @Test
     public void withoutPrefix() {
-        UrlSevice urlSevice = new UrlSevice();
+        UrlService urlService = new UrlService();
 
-        String actual = urlSevice.withoutPrefix("www.kicker.de");
+        String actual = urlService.withoutPrefix("www.kicker.de");
         Assert.assertTrue("kicker.de".equals(actual));
     }
 
     @Test
     public void getUrlParts() {
-        UrlSevice urlSevice = new UrlSevice();
+        UrlService urlService = new UrlService();
 
-        String[] parts = urlSevice.getUrlParts("mkaz.blog/code/python-string-format_cookbook/");
+        String[] parts = urlService.getUrlParts("mkaz.blog/code/python-string-format_cookbook/");
         Assert.assertTrue(parts.length == 7);
         Assert.assertTrue("mkaz".equals(parts[0]));
 

@@ -5,12 +5,12 @@ import java.util.*;
 public class DataService {
 
     public Map prepareData(final List<Link> links){
-        UrlSevice urlSevice = new UrlSevice();
+        UrlService urlService = new UrlService();
         Map<String, List<CategoryCount>> hash = new HashMap();
         for (Link link : links){
-            String url = urlSevice.withoutProtocol(link.getURL());
-            url = urlSevice.withoutPrefix(url);
-            String[] urlParts = urlSevice.getUrlParts(url);
+            String url = urlService.withoutProtocol(link.getURL());
+            url = urlService.withoutPrefix(url);
+            String[] urlParts = urlService.getUrlParts(url);
             for (String word : urlParts){
                 List<CategoryCount> categoryCounts = hash.get(word);
 

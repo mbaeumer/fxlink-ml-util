@@ -6,10 +6,10 @@ public class SuggestionService {
 
     public List<Suggestion> createSuggestions(final Map<String, List<CategoryCount>> map, final Link link){
         List<Suggestion> suggestions = new ArrayList<>();
-        UrlSevice urlSevice = new UrlSevice();
-        String url = urlSevice.withoutProtocol(link.getURL());
-        url = urlSevice.withoutPrefix(url);
-        String[] urlParts = urlSevice.getUrlParts(url);
+        UrlService urlService = new UrlService();
+        String url = urlService.withoutProtocol(link.getURL());
+        url = urlService.withoutPrefix(url);
+        String[] urlParts = urlService.getUrlParts(url);
 
         for (String word : urlParts){
             List<CategoryCount> categoryCounts = map.get(word);
