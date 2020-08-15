@@ -1,6 +1,7 @@
 package se.mbaeumer.fxlink.ml;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class SuggestionService {
 
@@ -28,7 +29,7 @@ public class SuggestionService {
                     }
             });
         }
-
-        return suggestions;
+        // .sorted(Comparator.comparing(User::getName, UserNameComparator.INSTANCE))
+        return suggestions.stream().sorted(Comparator.comparing(Suggestion::getCount).reversed()).collect(Collectors.toList());
     }
 }

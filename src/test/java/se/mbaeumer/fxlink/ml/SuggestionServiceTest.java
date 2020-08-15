@@ -16,6 +16,11 @@ public class SuggestionServiceTest {
         Link link = new Link("", "https://www.baeldung.com/jackson-kotlin", "");
         List<Suggestion> suggestions = suggestionService.createSuggestions(dataService.prepareData(createLinkList()), link);
         Assert.assertTrue(suggestions.stream().filter(suggestion -> "Kotlin".equals(suggestion.getCategory())).findFirst().isPresent());
+        Suggestion expectedSuggestion = suggestions.get(0);
+        Assert.assertTrue("Kotlin".equals(expectedSuggestion.getCategory()));
+        Assert.assertTrue(expectedSuggestion.getCount() == 3);
+        Assert.assertTrue(suggestions.stream().filter(suggestion -> "Java".equals(suggestion.getCategory())).findFirst().isPresent());
+
 
     }
 
@@ -29,6 +34,8 @@ public class SuggestionServiceTest {
         links.add(createLink("https://blog.frankel.ch/write-extension-functions-own-classes-kotlin/", 3, "Kotlin"));
         links.add(createLink("https://medium.com/recombee-blog/machine-learning-for-recommender-systems-part-1-algorithms-evaluation-and-cold-start-6f696683d0ed", 4,
                 "machine learning"));
+        links.add(createLink("https://www.baeldung.com/elements-combination-kotlin-collections/", 5, "Kotlin"));
+        links.add(createLink("https://www.baeldung.com/java-csv", 6, "Java"));
         return links;
     }
 
