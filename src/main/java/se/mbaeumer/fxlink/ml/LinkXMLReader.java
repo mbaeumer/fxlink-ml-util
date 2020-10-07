@@ -21,13 +21,7 @@ public class LinkXMLReader {
 	public static final String CATEGORY = "category";
 	public static final String LINKS = "links";
 	public static final String LINK = "link";
-	public static final String TAGS = "tags";
-	public static final String TAG = "tag";
-	public static final String LINKTAGS = "linktags";
-	public static final String LINKTAG = "linktag";
-	public static final String IMPORTITEMS = "importitems";
-	public static final String IMPORTITEM = "importitem";
-	
+
 	private XMLInputFactory xmlInputFactory;
 	private XMLEventReader xmlEventReader;
 	private FileInputStream fileInputStream;
@@ -119,7 +113,7 @@ public class LinkXMLReader {
 							link.setCategory(null);
 						}else{
 							Category category = new Category();
-							category.setId(new Integer(categoryId));
+							category.setId(Integer.parseInt(categoryId));
 							link.setCategory(category);
 						}
 					}else{

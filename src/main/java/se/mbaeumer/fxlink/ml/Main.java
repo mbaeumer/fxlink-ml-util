@@ -32,7 +32,16 @@ public class Main {
                 .collect(Collectors.toList());
 
         DataService dataService = new DataService();
+        categorizedLinks = dataService.matchCategories(categorizedLinks, reader.getCategories());
         Map<String, List<CategoryCount>> hashMap = dataService.prepareData(categorizedLinks);
 
+        SuggestionService suggestionService = new SuggestionService();
+        List<Suggestion> suggestions = suggestionService.createSuggestions(hashMap, new Link("", "https://www.adlibris.com/se/bok/beginning-ethical-hacking-with-python-9781484225400", ""));
+
+        for (Suggestion suggestion:suggestions){
+            System.out.println(suggestion.toString());
+        }
+
     }
+
 }

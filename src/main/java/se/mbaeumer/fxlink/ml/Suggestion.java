@@ -28,4 +28,12 @@ public class Suggestion {
     public void increaseCount(){
         count++;
     }
+
+    @Override
+    public String toString() {
+        return "Suggestion{" +
+                "category='" + category + '\'' +
+                ", count=" + count +
+                '}';
+    }
 }

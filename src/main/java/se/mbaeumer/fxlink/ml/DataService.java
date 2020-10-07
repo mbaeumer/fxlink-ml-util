@@ -34,6 +34,21 @@ public class DataService {
         return hash;
     }
 
+    public List<Link> matchCategories(final List<Link> links, final List<Category> categories){
+        List<Link> matchedLinks = new ArrayList<>();
+        for (int i = 0; i < links.size(); i++){
+            Link link = links.get(i);
+            Category match =
+                    categories.stream()
+                            .filter(category -> category.getId() == link.getCategory().getId())
+                            .findFirst().orElseThrow(NullPointerException::new);
+            link.setCategory(match);
+            matchedLinks.add(link);
+
+        }
+        return matchedLinks;
+    }
+
     private List<CategoryCount> initList(final String categoryName){
         List<CategoryCount> categoryCounts = new ArrayList<>();
         categoryCounts.add(new CategoryCount(categoryName, 1));
